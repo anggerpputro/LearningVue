@@ -1,11 +1,10 @@
 <template>
 	<ul class="list-group">
-		<app-server v-for="server in servers" :key="server.id" :id="server.id"></app-server>
+		<app-server v-for="server in servers" :key="server.id" :server="server"></app-server>
 	</ul>
 </template>
 
 <script>
-import { eventBus } from "../../main";
 import AppServer from "./Server.vue";
 
 export default {
@@ -22,11 +21,6 @@ export default {
 				{ id: 5, status: "Unknown" }
 			]
 		};
-	},
-	methods: {
-		viewDetails(server) {
-			eventBus.$emit("serverDetailsClicked", server);
-		}
 	}
 };
 </script>
